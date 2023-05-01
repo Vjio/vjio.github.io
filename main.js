@@ -80,6 +80,7 @@
 //fighters
     
     //fighter 1
+    
         upgradeFighter[1].addEventListener('click', () => {
             if(numPoints >= 20*Math.pow(1.15,fighterLevel[1])){
                 numPoints -= 20*Math.pow(1.15,fighterLevel[1]);
