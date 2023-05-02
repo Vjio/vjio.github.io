@@ -11,7 +11,7 @@ function loadGame(){ //a fost..... dificil sa scriu asta
     fighterLevel = JSON.parse(localStorage.getItem("fighterLevel")) || Array(10).fill(0);
     upgradeBool = JSON.parse(localStorage.getItem("upgradeBool")) || Array(10).fill(false);
     document.getElementById("points").innerHTML = convert(numPoints);
-    for (let i = 1; i <= 2; i++){
+    for (let i = 1; i <= 8; i++){
         document.getElementById("building" + i + "-level").innerHTML = buildingLevel[i];
         document.getElementById("progress-bar-" + i).addEventListener("animationiteration", () =>{animationUpdate (i)});
         document.getElementById("building" + i + "-cost").innerHTML = convert(buildingCost[i]*(Math.pow(1.15,buildingLevel[i])));
