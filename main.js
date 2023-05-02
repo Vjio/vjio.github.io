@@ -48,7 +48,7 @@
 
     //data functions
 
-       
+        
     
     //hide elements
 
@@ -59,7 +59,7 @@
 
 //audio
 
-    var audio = new Audio("assets/clickSound.mp3");    
+    var audio = new Audio("clickSound.mp3");    
 
 //button and points
 
@@ -80,7 +80,6 @@
 //fighters
     
     //fighter 1
-    
         upgradeFighter[1].addEventListener('click', () => {
             if(numPoints >= 20*Math.pow(1.15,fighterLevel[1])){
                 numPoints -= 20*Math.pow(1.15,fighterLevel[1]);
@@ -110,12 +109,11 @@
                     numPoints -= buildingCost[i]*(Math.pow(1.15,buildingLevel[i]));
                     buildingLevel[i] += 1;
                     if (buildingLevel[i] % 25 == 0)
-                        buildingTime[i] = 1/Math.pow(2,Math.floor(buildingLevel[i]/25));
+                        buildingTime[i] =  buildingTime[i]/(Math.pow(2, buildingLevel[i]/25));
                     points.innerHTML = convert(numPoints);
                     document.getElementById("building" + i + "-level").innerHTML = buildingLevel[i];
                     document.getElementById("building" + i + "-cost").innerHTML = convert(buildingCost[i]*Math.pow(1.15,buildingLevel[i]));
                     document.dispatchEvent(new Event('buildingChanged'));
-                    updateBuildingInterval(i);
                 }
             })
 
@@ -130,39 +128,13 @@
             
         }
 
-        function buildingTimeout(i, curentBuildingLevel){
-            setTimeout(() => {
-                if (curentBuildingLevel === buildingLevel[i]){
-                    numPoints += buildingLevel[i];
-                    points.innerHTML = convert(numPoints);
-                    buildingTimeout(i, curentBuildingLevel);
-                }
-            }, buildingTime[i] * 1000);
-        }
-
-        // trebuie sa transform remaining time in array si sa-l stochez pe local storage
-
-        function updateBuildingInterval(i) {
-            let date = Date.now();
-            let remainingTime = buildingTime[i] * 1000 - ((date - buildingTimeLeft[i]) % (buildingTime[i] * 1000)); 
-            if (buildingLevel[i] == 1){
-                remainingTime = buildingTime[i] * 1000;
-            }
-
-            let curentBuildingLevel = buildingLevel[i];
-
-            setTimeout(() => {
-                if (curentBuildingLevel == buildingLevel[i]){
-                    buildingTimeLeft[i] = Date.now(); 
-                    numPoints += buildingLevel[i];
-                    points.innerHTML = convert(numPoints);
-                    buildingTimeout(i, curentBuildingLevel);
-                }
-            }, remainingTime);
-          
-          }
-
     //progress bar function
+    function animationUpdate (index) {
+        numPoints += buildingLevel[index];
+        points.innerHTML = convert(numPoints);
+        console.log(buildingTime[1]);
+    }
+
     function displayProgressBar(){
         for (let i = 1; i <= 2; i++){
             if (buildingLevel[i] >= 1){
@@ -192,7 +164,6 @@
             function displayUpgrade(){ // daca vreti sa adaugati butoane puneti conditiile aici pebtru cand sa apara
                 if (buildingLevel[1] >= 1 && upgradeBool[1] == false){
                     document.getElementById("upgrade1").style.display = "block";
-                    console.log(upgradeBool[1]); 
                 }
                 if (buildingLevel[1] >= 2 && upgradeBool[2] == false){
                     document.getElementById("upgrade2").style.display = "block";

@@ -13,9 +13,10 @@ function loadGame(){ //a fost..... dificil sa scriu asta
     document.getElementById("points").innerHTML = convert(numPoints);
     for (let i = 1; i <= 2; i++){
         document.getElementById("building" + i + "-level").innerHTML = buildingLevel[i];
+        document.getElementById("progress-bar-" + i).addEventListener("animationiteration", () =>{animationUpdate (i)});
         document.getElementById("building" + i + "-cost").innerHTML = convert(buildingCost[i]*(Math.pow(1.15,buildingLevel[i])));
         buildingTime[i] = i;
-        updateBuildingInterval(i);
+        buildingTime[i] = buildingTime[i]/(Math.pow(2, buildingLevel[i]/25));
     }
     hideElements();
     displayUpgrade();
