@@ -11,6 +11,12 @@
     let buildingTime = Array.from({lenght: 10}, () => 0);
     buildingCost[1] = 20;
     buildingCost[2] = 100;
+    buildingCost[3] = 10;
+    buildingCost[4] = 10;
+    buildingCost[5] = 10;
+    buildingCost[6] = 10;
+    buildingCost[7] = 10;
+    buildingCost[8] = 10;
     let index;
     loadGame(); 
 
@@ -22,7 +28,7 @@
     const button = document.getElementById("image-button");
     const pointsPerClick = document.getElementById('points-per-click');
     const points = document.getElementById('points');
-    for (let i = 1; i <= 2; i++){
+    for (let i = 1; i <= 8; i++){
         upgradeBuilding[i] = document.getElementById('building' + i);
         upgradeFighter[i] = document.getElementById('fighter' + i);
         building_tooltip[i] = document.getElementById('building' + i +'-tooltip');
@@ -103,7 +109,7 @@
 
         var buildingInterval = Array.from({length: 10}, () => 0);
 
-        for (let i = 1; i <= 2; i++){
+        for (let i = 1; i <= 8; i++){
             upgradeBuilding[i].addEventListener('click', () =>{
                 if(numPoints >= buildingCost[i]*(Math.pow(1.15,buildingLevel[i]))){
                     numPoints -= buildingCost[i]*(Math.pow(1.15,buildingLevel[i]));
@@ -136,7 +142,7 @@
     }
 
     function displayProgressBar(){
-        for (let i = 1; i <= 2; i++){
+        for (let i = 1; i <= 8; i++){
             if (buildingLevel[i] >= 1){
                 document.getElementById("progress-bar-" + i).style.animation = 'glow';
                 document.getElementById("progress-bar-" + i).style.animationIterationCount = 'infinite';
