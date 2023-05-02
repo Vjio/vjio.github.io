@@ -11,12 +11,15 @@
 <body>
 	<canvas id="canvas"></canvas>
 	<br>
+	<p> Stock Price: <span id = "stock-price">150</span></p>
+	<br>
 	<button>Buy stock</button>
 	<br>
 	<button>Sell stock</button>
 	<script>
 		const canvas = document.getElementById("canvas");
 		const ctx = canvas.getContext("2d");
+		const stockPrice = document.getElementById("stock-price");
 
 		// Set the canvas size
 		canvas.width = 500;
@@ -50,13 +53,27 @@
 		//drawing the graph
 		const getStockPrice = () => {
 			let lastStock = 0;
-			while (stockTimes[lastStock] < 400)
+			let curentPrice;
+			while (stockTimes[lastStock+1] <= canvas.width){
 				lastStock++;
-			let X = stockTimes[lastStock + 1] - stockTimes[lastStock];
-			let x = stockTimes[lastStock + 1] - canvas.width;
-			let Y = stockPrices[lastStock + 1] - stockPrices[lastStock];
-			let y = Y*x/X
-			console.log(y + stockTimes[lastStock+1]);
+			}
+			
+				let X = stockTimes[lastStock+1] - stockTimes[lastStock];
+			
+			//console.log(y);
+			if (stockPrices[lastStock+1] > stockPrices[lastStock]){
+				let x = stockTimes[lastStock+1] - canvas.width;
+				let Y = stockPrices[lastStock+1] - stockPrices[lastStock];
+				let y = (Y*(X-x))/X;
+				curentPrice = Math.floor(300 - (stockPrices[lastStock] + y));
+			} else { 
+				let x = stockTimes[lastStock+1] - canvas.width;
+				let Y = stockPrices[lastStock+1] - stockPrices[lastStock];
+				let y = (Y*x)/X;
+				curentPrice = Math.floor(300 - (stockPrices[lastStock+1] - y));
+			}
+			stockPrice.innerHTML = curentPrice;
+			//console.log(lastStock);
 		};
 
 		const draw = () => {
@@ -103,7 +120,7 @@
 			}
 			getStockPrice();
 		};
-		setInterval(draw, 30);
+		setInterval(draw, 50);
 	</script>
 </body>
 </html>
