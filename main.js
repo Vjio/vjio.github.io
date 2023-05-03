@@ -237,5 +237,10 @@
 
     // Attach the handler
     ele.addEventListener('mousedown', mouseDownHandler);
-
+    
+    //Alert when user tries to reload/leave the page
+    window.addEventListener("beforeunload", function (event) {
+		event.preventDefault();
+		event.returnValue = "";
+	});
     
