@@ -31,7 +31,7 @@ body{
 .button-column{
     grid-column: 1 / span 2;
     grid-row: 1;
-    background-image: url("button_bg.png");
+    background-image: url("");
     display: block;
 }
 
@@ -49,7 +49,7 @@ body{
         height: 45%;
         border-radius: 50%; /* makes the button round */
         padding: 0;
-        background-image: url("Button.png");
+        background-image: url("assets/Button.png");
         background-size: 100%;
         transition: transform 0.1s ease-in-out;
     }
@@ -104,11 +104,11 @@ body{
     }
 
     #fighter1{
-        background-image: url("PlaceHolderImage.png");
+        background-image: url("assets/PlaceHolderImage.png");
     }
 
     #fighter2{
-        background-image: url("PlaceHolderImage.png");
+        background-image: url("assets/PlaceHolderImage.png");
     }
 
 .buildings-column{
@@ -155,35 +155,35 @@ body{
     }
 
         #building1{ /*aici pentru buton doar ii schimbi poza*/
-            background-image: url("PlaceHolderImage.png");
+            background-image: url("assets/PlaceHolderImage.png");
         }
 
         #building2{
-            background-image: url("PlaceHolderImage.png");
+            background-image: url("assets/PlaceHolderImage.png");
         }
 
         #building3{
-            background-image: url("PlaceHolderImage.png");
+            background-image: url("assets/PlaceHolderImage.png");
         }
 
         #building4{
-            background-image: url("PlaceHolderImage.png");
+            background-image: url("assets/PlaceHolderImage.png");
         }
 
         #building5{
-            background-image: url("PlaceHolderImage.png");
+            background-image: url("assets/PlaceHolderImage.png");
         }
 
         #building6{
-            background-image: url("PlaceHolderImage.png");
+            background-image: url("assets/PlaceHolderImage.png");
         }
 
         #building7{
-            background-image: url("PlaceHolderImage.png");
+            background-image: url("assets/PlaceHolderImage.png");
         }
 
         #building8{
-            background-image: url("PlaceHolderImage.png");
+            background-image: url("assets/PlaceHolderImage.png");
         }
 
     .progress-bar {
@@ -260,7 +260,7 @@ body{
             margin: 0 auto;
         }
         .window {
-            background-image: "url('grey_window.png')";
+            background-image: url('assets/grey_window.png');
             width: 45px;
             height: 70px;
             position: absolute;

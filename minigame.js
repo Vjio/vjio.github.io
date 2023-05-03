@@ -92,7 +92,7 @@ const interval = setInterval(draw, 13);
 let r_box = 0;
 let g_box = 0;
 
-var audioPop = new Audio("pop_sound.mp3");    
+var audioPop = new Audio("assets/pop_sound.mp3");    
 
 
 const nett = document.querySelector(".nett");
@@ -118,15 +118,15 @@ const nett = document.querySelector(".nett");
       
       window.addEventListener("click", () => {
         let check = window.style.backgroundImage;
-        if (window.style.backgroundImage === 'url("red_window.png")') {
+        if (window.style.backgroundImage === 'url("assets/red_window.png")') {
           console.log("RED");
           r_box++;
-          document.getElementById("red_boxes").innerHTML = r_box;
+          document.getElementById("assets/red_boxes").innerHTML = r_box;
           window.style.display = 'none';
         }
       });
       window.addEventListener("click", () => {
-        if (window.style.backgroundImage === 'url("green_window.png")') {
+        if (window.style.backgroundImage === 'url("assets/green_window.png")') {
           audioPop.play();
           console.log("GREEN");
           g_box++;
@@ -140,7 +140,7 @@ const nett = document.querySelector(".nett");
     const showWindow = () => {
       const window = windows[Math.floor(Math.random() * windows.length)];
       window.style.backgroundImage =
-        Math.random() > 0.5 ? "url('red_window.png')" : Math.random() > 0.5 ? "url('green_window.png')" : "url('grey_window.png')";
+        Math.random() > 0.5 ? "url('assets/red_window.png')" : Math.random() > 0.5 ? "url('assets/green_window.png')" : "url('assets/grey_window.png')";
       window.style.display = "block";
       timeoutId = setTimeout(hideWindow, randomInterval() + 100);
     };
