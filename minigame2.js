@@ -1,9 +1,9 @@
 const canvas2 = document.getElementById("canvas2");
 		const ctx2 = canvas2.getContext("2d");
 		const stockPrice = document.getElementById("stock-price");
-		const Balance = document.getElementById("balance");
+		const Balance = document.getElementById("points");
 		
-		let money = 1000;
+		//let money = 1000;
 		let curentPrice = 150;
 		let nrStocks = 0;
 
@@ -17,20 +17,20 @@ const canvas2 = document.getElementById("canvas2");
 			document.getElementById("minigame2").style.display = "block";
 
 		buyButton.addEventListener("click", () => {
-			if (money > curentPrice){
-				money -= curentPrice;
+			if (numPoints > curentPrice){
+				numPoints -= curentPrice;
 				nrStocks++;
 				document.getElementById("number-of-stocks").innerHTML = nrStocks;
-				Balance.innerHTML = money;
+				Balance.innerHTML = numPoints;
 			}
 		});
 
 		sellButton.addEventListener("click", () => {
 			if (nrStocks > 0){
 				nrStocks--;
-				money += curentPrice;
+				numPoints += curentPrice;
 				document.getElementById("number-of-stocks").innerHTML = nrStocks;
-				Balance.innerHTML = money;
+				Balance.innerHTML = numPoints;
 			}
 		});
 
