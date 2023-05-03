@@ -2,22 +2,29 @@
 <html>
 <head>
 	<style>
-		canvas {
+		#canvas2 {
 			border: 1px solid yellow;
 			background-color: #141517;
+		}
+		#stock-market-button{
+			height: 40px;
+			width: 100px;
 		}
 	</style>
 </head>
 <body>
-	<canvas id="canvas"></canvas>
-	<br>
-	<p> Stock Price: <span id = "stock-price">150</span></p>
-	<br>
-	<p> Balance: <span id = "balance">1000</span></p><br>
-	<p> Stocks: <span id = "number-of-stocks">0</span></p><br>
-	<button id = "buy">Buy stock</button>
-	<br>
-	<button id = "sell">Sell stock</button>
+	<button id = stock-market-button> Toggle stock market </button>
+	<div id = "minigame2" style = "display: none;">
+		<canvas id="canvas"></canvas>
+		<br>
+		<p> Stock Price: <span id = "stock-price">150</span></p>
+		<br>
+		<p> Balance: <span id = "balance">1000</span></p><br>
+		<p> Stocks: <span id = "number-of-stocks">0</span></p><br>
+		<button id = "buy">Buy stock</button>
+		<br>
+		<button id = "sell">Sell stock</button>
+	</div>
 	<script>
 		const canvas = document.getElementById("canvas");
 		const ctx = canvas.getContext("2d");
@@ -31,6 +38,11 @@
 		//buy/sell
 		const buyButton = document.getElementById("buy");
 		const sellButton = document.getElementById("sell");
+
+		document.getElementById("stock-market-button").addEventListener("click", () => {
+			
+			document.getElementById("stock-market-button").style.display = "none";
+			document.getElementById("minigame2").style.display = "block";
 
 		buyButton.addEventListener("click", () => {
 			if (money > curentPrice){
@@ -148,7 +160,9 @@
 			}
 			getStockPrice();
 		};
+		
 		setInterval(draw, 50);
+		});
 	</script>
 </body>
 </html>
