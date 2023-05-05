@@ -14,7 +14,7 @@ const canvas2 = document.getElementById("canvas2");
 		document.getElementById("stock-market-button").addEventListener("click", () => {
 			
 			document.getElementById("stock-market-button").style.display = "none";
-			document.getElementById("minigame2").style.display = "block";
+			document.getElementById("minigame2").style.display = "grid";
 
 		buyButton.addEventListener("click", () => {
 			if (numPoints > curentPrice){
@@ -35,7 +35,7 @@ const canvas2 = document.getElementById("canvas2");
 		});
 
 		// Set the canvas size
-		canvas2.width = 500;
+		canvas2.width = 400;
 		canvas2.height = 300;
 
 		//creating the stocks
@@ -107,15 +107,18 @@ const canvas2 = document.getElementById("canvas2");
 			for (let index = 0; index < numStocks; index++){
 				stockTimes[index] -= 1;
 			}
+
+			//displaying scale on the graph
+
 			ctx2.fillStyle = 'yellow';
 			ctx2.font = "20px Arial";
 			ctx2.fillText("BBCompany",10,50);
 			ctx2.font = "10px Arial";
-			ctx2.fillText("250",450,50);
-			ctx2.fillText("200",450,100);
-			ctx2.fillText("150",450,150);
-			ctx2.fillText("100",450,200);
-			ctx2.fillText("50",450,250);
+			ctx2.fillText("250",350,50);
+			ctx2.fillText("200",350,100);
+			ctx2.fillText("150",350,150);
+			ctx2.fillText("100",350,200);
+			ctx2.fillText("50",350,250);
 			//setting a new price for the stock
 			if (stockTimes[1] < 0){
 				stockTimes.shift();
