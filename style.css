@@ -283,6 +283,13 @@ body{
 			    /*border: 1px solid yellow;*/
 			    background-color: #141517;
 		    }
+            #stock-cover{
+                height: 300px;
+                width: 400px;
+                position: absolute;
+                opacity: 0.4;
+                background-image: url('assets/stock-cover.png');
+            }
 		    #stock-market-button{
 			    height: 40px;
 			    width: 100px;

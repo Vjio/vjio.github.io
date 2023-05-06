@@ -4,8 +4,8 @@ const canvas2 = document.getElementById("canvas2");
 		const Balance = document.getElementById("points");
 		
 		//let money = 1000;
-		let curentPrice = Array.from({length: 10}, () => 0);
-		let nrStocks = Array.from({length: 10}, () => 0);
+		let curentPrice = Array.from({length: 20}, () => 0);
+		let nrStocks = Array.from({length: 20}, () => 0);
 
 		//buy/sell
 		const buyButton = document.getElementById("buy");
@@ -16,7 +16,13 @@ const canvas2 = document.getElementById("canvas2");
 			document.getElementById("stock-market-button").style.display = "none";
 			document.getElementById("minigame2").style.display = "grid";
 
-			let curentStock = 0;
+			let curentStock = 1;
+
+			if (buildingLevel[curentStock] == 0){
+				document.getElementById("stock-cover").style.display = "block";
+			} else { 
+				document.getElementById("stock-cover").style.display = "none";
+			}
 
 		//setting the buy and sell buttons 
 
@@ -42,20 +48,30 @@ const canvas2 = document.getElementById("canvas2");
 
 		document.getElementById("prev-stock").addEventListener("click", ()=>{
 			if (curentStock == 0){
-				curentStock = 9;
+				curentStock = 8;
 			} else { 
 				curentStock--;
 			}
 			document.getElementById("number-of-stocks").innerHTML = nrStocks[curentStock];
+			if (buildingLevel[curentStock] == 0){
+				document.getElementById("stock-cover").style.display = "block";
+			} else { 
+				document.getElementById("stock-cover").style.display = "none";
+			}
 		});
 
 		document.getElementById("next-stock").addEventListener("click", ()=>{
 			if (curentStock == 9){
-				curentStock = 0;
+				curentStock = 1;
 			} else { 
 				curentStock++;
 			}
 			document.getElementById("number-of-stocks").innerHTML = nrStocks[curentStock];
+			if (buildingLevel[curentStock] == 0){
+				document.getElementById("stock-cover").style.display = "block";
+			} else { 
+				document.getElementById("stock-cover").style.display = "none";
+			}
 		});
 
 		
@@ -70,7 +86,7 @@ const canvas2 = document.getElementById("canvas2");
 			// initiating the stock
 
 				let stockPrices = [];
-				for (let i = 0; i < 10; i++){
+				for (let i = 0; i < 20; i++){
 					stockPrices[i] = [];
 				};
 
@@ -84,13 +100,14 @@ const canvas2 = document.getElementById("canvas2");
 				stockPrices[7][0] = 150;
 				stockPrices[8][0] = 150;
 				stockPrices[9][0] = 150;
+				stockPrices[10][0] = 150;
 
 				let stockTimes = [];
 				for (let i = 0; i < 40; i++){
 					stockTimes[i] = [];
 				};
 
-				for (let i = 0; i < 10; i++){
+				for (let i = 0; i < 20; i++){
 					stockTimes[i][0] = 0;
 				}
 
@@ -98,7 +115,7 @@ const canvas2 = document.getElementById("canvas2");
 				let volatility = 4; //less is more
 				let luck = 0.5; // more is more
 
-				for (let index = 0; index < 10; index++){
+				for (let index = 1; index < 11; index++){
 					for (let i = 1; i < numStocks; i++) {
 						stockTimes[index].push(stockTimes[index][i-1] + Math.floor(Math.random() * 5)*10 + 15);
 						if (Math.random() < luck){
