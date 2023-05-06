@@ -92,7 +92,8 @@ const interval = setInterval(draw, 13);
 let r_box = 0;
 let g_box = 0;
 
-var audioPop = new Audio("assets/pop_sound.mp3");    
+var audioPop = new Audio("assets/pop_sound.mp3");
+var audioError = new Audio("assets/error_sound.mp3");    
 
 
 const nett = document.querySelector(".nett");
@@ -119,9 +120,10 @@ const nett = document.querySelector(".nett");
       window.addEventListener("click", () => {
         let check = window.style.backgroundImage;
         if (window.style.backgroundImage === 'url("assets/red_window.png")') {
+          audioError.play();
           console.log("RED");
           r_box++;
-          document.getElementById("assets/red_boxes").innerHTML = r_box;
+          document.getElementById("red_boxes").innerHTML = r_box;
           window.style.display = 'none';
         }
       });
