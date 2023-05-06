@@ -142,21 +142,27 @@ const nett = document.querySelector(".nett");
       nett.appendChild(window);
       
       window.addEventListener("click", () => {
-        let check = window.style.backgroundImage;
         if (window.style.backgroundImage === 'url("assets/red_window.png")') {
           audioError.play();
-          console.log("RED");
-          r_box++;
-          document.getElementById("red_boxes").innerHTML = r_box;
+          if (numPoints-200 >= 0)
+            numPoints -= 200;
+          else 
+            numPoints = 0;
+          points.innerHTML = convert(numPoints);
           window.style.display = 'none';
         }
       });
-      window.addEventListener("click", () => {
+      window.addEventListener("click", (event) => {
         if (window.style.backgroundImage === 'url("assets/green_window.png")') {
           audioPop.play();
-          console.log("GREEN");
-          g_box++;
-          document.getElementById("green_boxes").innerHTML = g_box;
+          let rect = canvas.getBoundingClientRect();
+          numPoints += 50;
+          points.innerHTML = convert(numPoints);
+          /*
+          ctx.beginPath();
+          ctx.fillText("+50",event.clientX-rect.left, event.clientY-rect.top);
+          ctx.stroke();
+          */
           window.style.display = 'none';
         }
       });

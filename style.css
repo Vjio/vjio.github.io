@@ -251,12 +251,20 @@ body{
             width: 80px;
         }
 
+        #minigame-start-button{
+            height: 60px;
+            width: 120px;
+            text-align: center;
+            font-size: 32px;
+        }
+
         #canvas {
             border: 1px solid black;
             position: relative;
             display: block;
         }
         #netrun-cover{
+            color: aliceblue;
             top: 0px;
             left: 0px;
             position: absolute;
@@ -265,6 +273,8 @@ body{
             width: 500px;
             background-color: #141517;
             text-align: center;
+            align-content: center;
+            
         }
         .nett {
             background-color: black;
