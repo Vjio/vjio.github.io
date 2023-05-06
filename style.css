@@ -236,17 +236,21 @@ body{
     .middle-row{
         grid-column: 1;
         grid-row: 1/span 3;
-        display: flex;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 300px 500px;
         align-items: right;
     }
 
         #minigame{
+            grid-row: 2;
             height: 500px;
             width: 500px;
             display: grid;
         }
 
         #minigame-button{
+            grid-row: 2;
             height: 40px;
             width: 80px;
         }
@@ -259,13 +263,15 @@ body{
         }
 
         #canvas {
+            grid-row: 2;
             border: 1px solid black;
             position: relative;
             display: block;
         }
         #netrun-cover{
+            grid-row: 2;
             color: aliceblue;
-            top: 0px;
+            top: 260px;
             left: 0px;
             position: absolute;
             z-index: 1;
@@ -295,6 +301,7 @@ body{
         }
 
         #minigame2{
+            grid-row: 1;
             height: 300px;
             width: 500px;
             display: grid;
