@@ -44,7 +44,7 @@ const canvas2 = document.getElementById("canvas2");
 				nrStocks[curentStock]--;
 				numPoints += Math.floor(0.99*curentPrice[curentStock]*stockMultiplier);
 				document.getElementById("number-of-stocks").innerHTML = nrStocks[curentStock];
-				Balance.innerHTML = numPoints;
+				Balance.innerHTML = convert(numPoints);
 			}
 		});
 

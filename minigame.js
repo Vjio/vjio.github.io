@@ -1,13 +1,37 @@
-const toggleMinigame = document.getElementById("minigame");
+const toggleMinigame = document.getElementById("minigame-button");
 
+      const startMinigame = document.getElementById("minigame-start-button");
+      const netrunCover = document.getElementById("netrun-cover");
       const canvas = document.getElementById("room");
       const ctx = canvas.getContext("2d");
 
 //drawing the nett
 
 toggleMinigame.addEventListener("click", ()=>{
-        document.getElementById("Alin's minigame").style.display = 'block';
+        document.getElementById("minigame").style.display = 'block';
         toggleMinigame.style.display = "none";
+
+let gameTime = 15000;
+let gameCooldown = 60000;
+
+startMinigame.addEventListener("click", () => {
+  if (gameCooldown == 0){
+    netrunCover.style.display = "none";
+    setTimeout(()=>{
+      netrunCover.style.display = "block";
+      gameCooldown = 60000;
+    }, gameTime);
+  }
+});
+
+setInterval(()=>{
+  if (gameCooldown > 0){
+    gameCooldown -= 1000;
+    document.getElementById("minigame-timer").innerHTML = gameCooldown/1000 + 's';
+  } else {
+    document.getElementById("minigame-timer").innerHTML = "Ready";
+  }
+},1000);
 
 const squareSize = 50;
 const centerX = canvas.width / 2;

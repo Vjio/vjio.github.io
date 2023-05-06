@@ -241,15 +241,30 @@ body{
     }
 
         #minigame{
+            height: 500px;
+            width: 500px;
+            display: grid;
+        }
+
+        #minigame-button{
             height: 40px;
             width: 80px;
         }
 
         #canvas {
             border: 1px solid black;
-            position: absolute;
+            position: relative;
             display: block;
+        }
+        #netrun-cover{
+            top: 0px;
+            left: 0px;
+            position: absolute;
             z-index: 1;
+            height: 500px;
+            width: 500px;
+            background-color: #141517;
+            text-align: center;
         }
         .nett {
             background-color: black;
