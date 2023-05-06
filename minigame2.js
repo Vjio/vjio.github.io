@@ -1,6 +1,7 @@
 const canvas2 = document.getElementById("canvas2");
 		const ctx2 = canvas2.getContext("2d");
-		const stockPrice = document.getElementById("stock-price");
+		const stockBuyPrice = document.getElementById("stock-buy-price");
+		const stockSellPrice = document.getElementById("stock-sell-price");
 		const Balance = document.getElementById("points");
 		
 		//let money = 1000;
@@ -17,6 +18,7 @@ const canvas2 = document.getElementById("canvas2");
 			document.getElementById("minigame2").style.display = "grid";
 
 			let curentStock = 1;
+			let stockMultiplier = Math.pow(4, (curentStock-1));
 
 			if (buildingLevel[curentStock] == 0){
 				document.getElementById("stock-cover").style.display = "block";
@@ -29,8 +31,8 @@ const canvas2 = document.getElementById("canvas2");
 
 
 		buyButton.addEventListener("click", () => {
-			if (numPoints > curentPrice[curentStock] && buildingLevel[curentStock] != 0){
-				numPoints -= curentPrice[curentStock];
+			if (numPoints > Math.floor(1.01*curentPrice[curentStock]*stockMultiplier) && buildingLevel[curentStock] != 0){
+				numPoints -= Math.floor(1.01*curentPrice[curentStock]*stockMultiplier);
 				nrStocks[curentStock]++;
 				document.getElementById("number-of-stocks").innerHTML = nrStocks[curentStock];
 				Balance.innerHTML = numPoints;
@@ -40,7 +42,7 @@ const canvas2 = document.getElementById("canvas2");
 		sellButton.addEventListener("click", () => {
 			if (nrStocks[curentStock] > 0){
 				nrStocks[curentStock]--;
-				numPoints += curentPrice[curentStock];
+				numPoints += Math.floor(0.99*curentPrice[curentStock]*stockMultiplier);
 				document.getElementById("number-of-stocks").innerHTML = nrStocks[curentStock];
 				Balance.innerHTML = numPoints;
 			}
@@ -48,7 +50,7 @@ const canvas2 = document.getElementById("canvas2");
 
 
 		document.getElementById("prev-stock").addEventListener("click", ()=>{
-			if (curentStock == 0){
+			if (curentStock == 1){
 				curentStock = 8;
 			} else { 
 				curentStock--;
@@ -62,7 +64,7 @@ const canvas2 = document.getElementById("canvas2");
 		});
 
 		document.getElementById("next-stock").addEventListener("click", ()=>{
-			if (curentStock == 9){
+			if (curentStock == 8){
 				curentStock = 1;
 			} else { 
 				curentStock++;
@@ -151,7 +153,8 @@ const canvas2 = document.getElementById("canvas2");
 				let y = (Y*x)/X;
 				curentPrice[curentStock] = Math.floor(300 - (stockPrices[curentStock][lastStock+1] - y));
 			}
-			stockPrice.innerHTML = curentPrice[curentStock];
+			stockBuyPrice.innerHTML = convert(Math.floor(1.01*curentPrice[curentStock]*stockMultiplier));
+			stockSellPrice.innerHTML = convert(Math.floor(0.99*curentPrice[curentStock]*stockMultiplier));
 			//console.log(lastStock);
 		};
 
@@ -177,15 +180,19 @@ const canvas2 = document.getElementById("canvas2");
 
 			//displaying scale on the graph
 
+
+			stockMultiplier = Math.pow(4, (curentStock-1));
+			console.log(curentStock);
+
 			ctx2.fillStyle = 'yellow';
 			ctx2.font = "20px Arial";
-			ctx2.fillText("BBCompany",10,50);
+			ctx2.fillText(document.getElementById("building"+curentStock+"-tooltip").childNodes[0].textContent,-120,50);
 			ctx2.font = "10px Arial";
-			ctx2.fillText("250",350,50);
-			ctx2.fillText("200",350,100);
-			ctx2.fillText("150",350,150);
-			ctx2.fillText("100",350,200);
-			ctx2.fillText("50",350,250);
+			ctx2.fillText(convert(250*stockMultiplier),350,50);
+			ctx2.fillText(convert(200*stockMultiplier),350,100);
+			ctx2.fillText(convert(150*stockMultiplier),350,150);
+			ctx2.fillText(convert(100*stockMultiplier),350,200);
+			ctx2.fillText(convert(50*stockMultiplier),350,250);
 			//setting a new price for the stock
 			if (stockTimes[curentStock][1] < 0){
 				stockTimes[curentStock].shift();
