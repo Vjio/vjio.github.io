@@ -23,12 +23,13 @@ const canvas2 = document.getElementById("canvas2");
 			} else { 
 				document.getElementById("stock-cover").style.display = "none";
 			}
+			document.getElementById("number-of-stocks").innerHTML = nrStocks[curentStock];
 
 		//setting the buy and sell buttons 
 
 
 		buyButton.addEventListener("click", () => {
-			if (numPoints > curentPrice[curentStock]){
+			if (numPoints > curentPrice[curentStock] && buildingLevel[curentStock] != 0){
 				numPoints -= curentPrice[curentStock];
 				nrStocks[curentStock]++;
 				document.getElementById("number-of-stocks").innerHTML = nrStocks[curentStock];

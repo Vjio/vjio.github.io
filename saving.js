@@ -3,6 +3,7 @@ function saveData(){
     localStorage.setItem("buildingLevel", JSON.stringify(buildingLevel));
     localStorage.setItem("fighterLevel", JSON.stringify(fighterLevel));
     localStorage.setItem("upgradeBool", JSON.stringify(upgradeBool));
+    localStorage.setItem("numberOfStocks", JSON.stringify(nrStocks));
 }
 
 function loadGame(){ //a fost..... dificil sa scriu asta
@@ -10,6 +11,7 @@ function loadGame(){ //a fost..... dificil sa scriu asta
     buildingLevel = JSON.parse(localStorage.getItem("buildingLevel")) || Array(10).fill(0); // sunt un geniu si am transformat datele butoanelor in array-uri, astfel codul poate fi scris in loopuri ca sa-mi bat capul o singura data cu butoanele
     fighterLevel = JSON.parse(localStorage.getItem("fighterLevel")) || Array(10).fill(0);
     upgradeBool = JSON.parse(localStorage.getItem("upgradeBool")) || Array(10).fill(false);
+    nrStocks = JSON.parse(localStorage.getItem("numberOfStocks")) || Array(10).fill(0);
     document.getElementById("points").innerHTML = convert(numPoints);
     for (let i = 1; i <= 8; i++){
         document.getElementById("building" + i + "-level").innerHTML = buildingLevel[i];
