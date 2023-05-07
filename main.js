@@ -8,6 +8,25 @@
     let buildingCost = Array.from({lenght: 12}, () => 0);
     let buildingIncome = Array.from({lenght: 12}, () => 0);
     let buildingTime = Array.from({lenght: 12}, () => 0);
+    
+    let index;
+    loadGame(); 
+
+// values 
+    const upgradeBuilding = Array.from({length: 12}, () => NaN);
+    const upgradeFighter = Array.from({length: 12}, () => NaN);
+    const building_tooltip = Array.from({length: 12}, () => NaN);
+    const fighter_tooltip = Array.from({length: 12}, () => NaN);
+    const button = document.getElementById("image-button");
+    const pointsPerClick = document.getElementById('points-per-click');
+    const points = document.getElementById('points');
+    for (let i = 1; i <= 11; i++){
+        upgradeBuilding[i] = document.getElementById('building' + i);
+        upgradeFighter[i] = document.getElementById('fighter' + i);
+        building_tooltip[i] = document.getElementById('building' + i +'-tooltip');
+        fighter_tooltip[i] = document.getElementById('fighter' + i + '-tooltip'); 
+    }
+
     buildingCost[1] = 1;
     buildingCost[2] = 7;
     buildingCost[3] = 11;
@@ -41,23 +60,6 @@
     buildingIncome[9]=10876;
     buildingIncome[10]=25256;
     buildingIncome[11]=67895;
-    let index;
-    loadGame(); 
-
-// values 
-    const upgradeBuilding = Array.from({length: 12}, () => NaN);
-    const upgradeFighter = Array.from({length: 12}, () => NaN);
-    const building_tooltip = Array.from({length: 12}, () => NaN);
-    const fighter_tooltip = Array.from({length: 12}, () => NaN);
-    const button = document.getElementById("image-button");
-    const pointsPerClick = document.getElementById('points-per-click');
-    const points = document.getElementById('points');
-    for (let i = 1; i <= 11; i++){
-        upgradeBuilding[i] = document.getElementById('building' + i);
-        upgradeFighter[i] = document.getElementById('fighter' + i);
-        building_tooltip[i] = document.getElementById('building' + i +'-tooltip');
-        fighter_tooltip[i] = document.getElementById('fighter' + i + '-tooltip'); 
-    }
 
 // functions
 
