@@ -185,7 +185,6 @@
 
 
 			stockMultiplier = Math.pow(4, (curentStock-1));
-			console.log(curentStock);
 
 			ctx2.fillStyle = 'yellow';
 			ctx2.font = "20px Arial";

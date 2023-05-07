@@ -5,6 +5,7 @@
     user-select: none;
     background-color: #141517;
     color: aliceblue;
+    z-index: 1;
 }
     #tutorial-panel-1{
         top: 70px;

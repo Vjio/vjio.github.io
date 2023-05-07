@@ -67,8 +67,8 @@ loadGame();
 
     button.addEventListener('click', () => {
         audio.play();
-        updateProgress();
         numPoints += numPointsPerClick;
+        updateProgress();
         points.innerHTML = convert(numPoints);
     });
 
@@ -81,6 +81,7 @@ loadGame();
     });   
     
     updateProgress();
+    
 
 //fighters
     
@@ -108,10 +109,13 @@ loadGame();
 
         for (let i = 1; i <= 11; i++) {
             upgradeBuilding[i].addEventListener('click', () =>{
+
                 if(numPoints >= buildingCost[i]) {
                     numPoints -= buildingCost[i];
                     buildingLevel[i]++;
                     buildingCost[i]*=1.131;
+
+                    updateProgress(); // provizoriu
                 
                 if (buildingLevel[i]-1 == 0)
                     buildingIncome[i] = baseIncome[i];
