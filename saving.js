@@ -7,6 +7,7 @@ function saveData(){
     localStorage.setItem("upgradeBool", JSON.stringify(upgradeBool));
     localStorage.setItem("numberOfStocks", JSON.stringify(nrStocks));
     localStorage.setItem("buildingTime", JSON.stringify(buildingTime));
+    localStorage.setItem("buildingMult", JSON.stringify(buildingTime));
 }
 
 function loadGame(){ //a fost..... dificil sa scriu asta
@@ -18,6 +19,7 @@ function loadGame(){ //a fost..... dificil sa scriu asta
     fighterLevel = JSON.parse(localStorage.getItem("fighterLevel")) || Array(12).fill(0);
     upgradeBool = JSON.parse(localStorage.getItem("upgradeBool")) || Array(12).fill(false);
     nrStocks = JSON.parse(localStorage.getItem("numberOfStocks")) || Array(12).fill(0);
+    buildingMult = JSON.parse(localStorage.getItem("buildingMult")) || [1,1,1,1,1,1,1,1,1,1,1];
     document.getElementById("points").innerHTML = convert(numPoints);
     for (let i = 1; i <= 11; i++) {
         document.getElementById("building" + i + "-level").innerHTML = buildingLevel[i];
