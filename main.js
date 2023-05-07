@@ -138,7 +138,7 @@
     function animationUpdate (index) {
         numPoints += buildingLevel[index];
         points.innerHTML = convert(numPoints);
-        console.log(buildingTime[1]);
+        console.log(index);
     }
 
     function displayProgressBar(){
