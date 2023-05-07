@@ -105,7 +105,7 @@ loadGame();
                         if(numPoints >= buildingCost[i]) {
                             numPoints -= buildingCost[i];
                             buildingLevel[i]++;
-                            buildingCost[i]*=1.12;
+                            buildingCost[i]*=1.13;
                             if(buildingLevel[i]-1 == 0)
                                 buildingIncome[i]=2;
                             else 
@@ -122,7 +122,7 @@ loadGame();
                         if(numPoints >= buildingCost[i]) {
                             numPoints -= buildingCost[i];
                             buildingLevel[i]++;
-                            buildingCost[i]*=1.12;
+                            buildingCost[i]*=1.13;
                             if(buildingLevel[i]-1 == 0)
                                 buildingIncome[i]=73;
                             else 
@@ -139,7 +139,7 @@ loadGame();
                         if(numPoints >= buildingCost[i]) {
                             numPoints -= buildingCost[i];
                             buildingLevel[i]++;
-                            buildingCost[i]*=1.127;
+                            buildingCost[i]*=1.13;
                             if(buildingLevel[i]-1 == 0)
                                 buildingIncome[i]=100;
                             else 
@@ -156,7 +156,7 @@ loadGame();
                         if(numPoints >= buildingCost[i]) {
                             numPoints -= buildingCost[i];
                             buildingLevel[i]++;
-                            buildingCost[i]*=1.119;
+                            buildingCost[i]*=1.13;
                             if(buildingLevel[i]-1 == 0)
                                 buildingIncome[i]=267;
                             else 
@@ -173,7 +173,7 @@ loadGame();
                         if(numPoints >= buildingCost[i]) {
                             numPoints -= buildingCost[i];
                             buildingLevel[i]++;
-                            buildingCost[i]*=1.12;
+                            buildingCost[i]*=1.13;
                             if(buildingLevel[i]-1 == 0)
                                 buildingIncome[i]=512;
                             else 
@@ -190,7 +190,7 @@ loadGame();
                         if(numPoints >= buildingCost[i]) {
                             numPoints -= buildingCost[i];
                             buildingLevel[i]++;
-                            buildingCost[i]*=1.115;
+                            buildingCost[i]*=1.13;
                             if(buildingLevel[i]-1 == 0)
                                 buildingIncome[i]=1065;
                             else 
@@ -207,7 +207,7 @@ loadGame();
                         if(numPoints >= buildingCost[i]) {
                             numPoints -= buildingCost[i];
                             buildingLevel[i]++;
-                            buildingCost[i]*=1.121;
+                            buildingCost[i]*=1.13;
                             if(buildingLevel[i]-1 == 0)
                                 buildingIncome[i]=2043;
                             else 
@@ -224,7 +224,7 @@ loadGame();
                         if(numPoints >= buildingCost[i]) {
                             numPoints -= buildingCost[i];
                             buildingLevel[i]++;
-                            buildingCost[i]*=1.12;
+                            buildingCost[i]*=1.13;
                             if(buildingLevel[i]-1 == 0)
                                 buildingIncome[i]=5347;
                             else 
@@ -241,7 +241,7 @@ loadGame();
                         if(numPoints >= buildingCost[i]) {
                             numPoints -= buildingCost[i];
                             buildingLevel[i]++;
-                            buildingCost[i]*=1.121;
+                            buildingCost[i]*=1.13;
                             if(buildingLevel[i]-1 == 0)
                                 buildingIncome[i]=10876;
                             else 
@@ -258,7 +258,7 @@ loadGame();
                         if(numPoints >= buildingCost[i]) {
                             numPoints -= buildingCost[i];
                             buildingLevel[i]++;
-                            buildingCost[i]*=1.123;
+                            buildingCost[i]*=1.13;
                             if(buildingLevel[i]-1 == 0)
                                 buildingIncome[i]=25256;
                             else 
@@ -275,7 +275,7 @@ loadGame();
                         if(numPoints >= buildingCost[i]) {
                             numPoints -= buildingCost[i];
                             buildingLevel[i]++;
-                            buildingCost[i]*=1.121;
+                            buildingCost[i]*=1.13;
                             if(buildingLevel[i]-1 == 0)
                                 buildingIncome[i]=67895;
                             else 
