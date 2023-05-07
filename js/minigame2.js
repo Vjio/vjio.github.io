@@ -37,7 +37,7 @@
 				numPoints -= Math.floor(1.01*curentPrice[curentStock]*stockMultiplier);
 				nrStocks[curentStock]++;
 				document.getElementById("number-of-stocks").innerHTML = nrStocks[curentStock];
-				Balance.innerHTML = convert(numPoints);
+				Balance.innerHTML = numPoints;
 			}
 		});
 

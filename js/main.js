@@ -1,26 +1,17 @@
-<<<<<<< Updated upstream
-=======
 //data
 
->>>>>>> Stashed changes
 let numPoints = 0;
 let numPointsPerClick = 1;
 let buildingLevel = Array.from({length: 12}, () => 0);
 let fighterLevel = Array.from({length: 12}, () => 0);
 let upgradeBool = Array.from({length: 12}, () => false);
-<<<<<<< Updated upstream
-=======
 let tutorialBool = Array.from({length: 10}, () => false);
->>>>>>> Stashed changes
 let buildingCost = Array.from({lenght: 12}, () => 0);
 let buildingIncome = Array.from({lenght: 12}, () => 0);
 let buildingTime = Array.from({lenght: 12}, () => 0);
 let buildingMult = Array.from({lenght: 12}, () => 0);
-<<<<<<< Updated upstream
-=======
 let baseIncome = [0, 2, 73, 100, 267, 512, 1065, 2043, 5347, 10876, 25256, 67895];
 let baseMult = [0, 1, 7, 31, 247, 512, 1200, 3781, 8678, 21178, 70896, 150765];
->>>>>>> Stashed changes
 let index;
 
 loadGame(); 
@@ -76,10 +67,7 @@ loadGame();
 
     button.addEventListener('click', () => {
         audio.play();
-<<<<<<< Updated upstream
-=======
         updateProgress();
->>>>>>> Stashed changes
         numPoints += numPointsPerClick;
         points.innerHTML = convert(numPoints);
     });
@@ -90,13 +78,9 @@ loadGame();
       
     button.addEventListener("mouseup", function() {
         button.classList.remove("pressed");
-<<<<<<< Updated upstream
-    });    
-=======
     });   
     
     updateProgress();
->>>>>>> Stashed changes
 
 //fighters
     
@@ -124,197 +108,6 @@ loadGame();
 
         for (let i = 1; i <= 11; i++) {
             upgradeBuilding[i].addEventListener('click', () =>{
-<<<<<<< Updated upstream
-                switch(i) {
-                    case(1):
-                        if(numPoints >= buildingCost[i]) {
-                            numPoints -= buildingCost[i];
-                            buildingLevel[i]++;
-                            buildingCost[i]*=1.131;
-                            if(buildingLevel[i]-1 == 0)
-                                buildingIncome[i]=2;
-                            else 
-                                buildingIncome[i] = buildingIncome[i] + 1 * buildingMult[i];
-                            if (((buildingLevel[i] % 25 == 0 && buildingLevel[i] <= 75) || (buildingLevel[i] % 100 == 0)) && buildingTime[i] > 1)
-                                buildingTime[i] /= 2;
-                            points.innerHTML = convert(numPoints);
-                            document.getElementById("building" + i + "-level").innerHTML = buildingLevel[i];
-                            document.getElementById("building" + i + "-cost").innerHTML = convert(buildingCost[i]);
-                            document.dispatchEvent(new Event('buildingChanged'));
-                        }
-                        break;
-                    case(2):
-                        if(numPoints >= buildingCost[i]) {
-                            numPoints -= buildingCost[i];
-                            buildingLevel[i]++;
-                            buildingCost[i]*=1.131;
-                            if(buildingLevel[i]-1 == 0)
-                                buildingIncome[i]=73;
-                            else 
-                                buildingIncome[i] = buildingIncome[i] + 7 * buildingMult[i];
-                            if ((buildingLevel[i] % 25 == 0 && buildingLevel[i] <= 75) || (buildingLevel[i] % 100 == 0) && buildingTime[i] > 1)
-                                buildingTime[i] /= 2;
-                            points.innerHTML = convert(numPoints);
-                            document.getElementById("building" + i + "-level").innerHTML = buildingLevel[i];
-                            document.getElementById("building" + i + "-cost").innerHTML = convert(buildingCost[i]);
-                            document.dispatchEvent(new Event('buildingChanged'));
-                        }
-                        break;
-                    case(3):
-                        if(numPoints >= buildingCost[i]) {
-                            numPoints -= buildingCost[i];
-                            buildingLevel[i]++;
-                            buildingCost[i]*=1.131;
-                            if(buildingLevel[i]-1 == 0)
-                                buildingIncome[i]=100;
-                            else 
-                                buildingIncome[i] = buildingIncome[i] + 31 * buildingMult[i];
-                            if ((buildingLevel[i] % 25 == 0 && buildingLevel[i] <= 75) || (buildingLevel[i] % 100 == 0) && buildingTime[i] > 1)
-                                buildingTime[i] /= 2;
-                            points.innerHTML = convert(numPoints);
-                            document.getElementById("building" + i + "-level").innerHTML = buildingLevel[i];
-                            document.getElementById("building" + i + "-cost").innerHTML = convert(buildingCost[i]);
-                            document.dispatchEvent(new Event('buildingChanged'));
-                        }
-                        break;
-                    case(4):
-                        if(numPoints >= buildingCost[i]) {
-                            numPoints -= buildingCost[i];
-                            buildingLevel[i]++;
-                            buildingCost[i]*=1.131;
-                            if(buildingLevel[i]-1 == 0)
-                                buildingIncome[i]=267;
-                            else 
-                                buildingIncome[i] = buildingIncome[i] + 247 * buildingMult[i];
-                            if ((buildingLevel[i] % 25 == 0 && buildingLevel[i] <= 75) || (buildingLevel[i] % 100 == 0) && buildingTime[i] > 1)
-                                buildingTime[i] /= 2;
-                            points.innerHTML = convert(numPoints);
-                            document.getElementById("building" + i + "-level").innerHTML = buildingLevel[i];
-                            document.getElementById("building" + i + "-cost").innerHTML = convert(buildingCost[i]);
-                            document.dispatchEvent(new Event('buildingChanged'));
-                        }
-                        break;
-                    case(5):
-                        if(numPoints >= buildingCost[i]) {
-                            numPoints -= buildingCost[i];
-                            buildingLevel[i]++;
-                            buildingCost[i]*=1.131;
-                            if(buildingLevel[i]-1 == 0)
-                                buildingIncome[i]=512;
-                            else 
-                                buildingIncome[i] = buildingIncome[i] + 512 * buildingMult[i];
-                            if ((buildingLevel[i] % 25 == 0 && buildingLevel[i] <= 75) || (buildingLevel[i] % 100 == 0) && buildingTime[i] > 1)
-                                buildingTime[i] /= 2;
-                            points.innerHTML = convert(numPoints);
-                            document.getElementById("building" + i + "-level").innerHTML = buildingLevel[i];
-                            document.getElementById("building" + i + "-cost").innerHTML = convert(buildingCost[i]);
-                            document.dispatchEvent(new Event('buildingChanged'));
-                        }
-                        break;
-                    case(6):
-                        if(numPoints >= buildingCost[i]) {
-                            numPoints -= buildingCost[i];
-                            buildingLevel[i]++;
-                            buildingCost[i]*=1.131;
-                            if(buildingLevel[i]-1 == 0)
-                                buildingIncome[i]=1065;
-                            else 
-                                buildingIncome[i] = buildingIncome[i] + 1200 * buildingMult[i];
-                            if ((buildingLevel[i] % 25 == 0 && buildingLevel[i] <= 75) || (buildingLevel[i] % 100 == 0) && buildingTime[i] > 1)
-                                buildingTime[i] /= 2;
-                            points.innerHTML = convert(numPoints);
-                            document.getElementById("building" + i + "-level").innerHTML = buildingLevel[i];
-                            document.getElementById("building" + i + "-cost").innerHTML = convert(buildingCost[i]);
-                            document.dispatchEvent(new Event('buildingChanged'));
-                        }
-                        break;
-                    case(7):
-                        if(numPoints >= buildingCost[i]) {
-                            numPoints -= buildingCost[i];
-                            buildingLevel[i]++;
-                            buildingCost[i]*=1.131;
-                            if(buildingLevel[i]-1 == 0)
-                                buildingIncome[i]=2043;
-                            else 
-                                buildingIncome[i] = buildingIncome[i] + 3781 * buildingMult[i];
-                            if ((buildingLevel[i] % 25 == 0 && buildingLevel[i] <= 75) || (buildingLevel[i] % 100 == 0) && buildingTime[i] > 1)
-                                buildingTime[i] /= 2;
-                            points.innerHTML = convert(numPoints);
-                            document.getElementById("building" + i + "-level").innerHTML = buildingLevel[i];
-                            document.getElementById("building" + i + "-cost").innerHTML = convert(buildingCost[i]);
-                            document.dispatchEvent(new Event('buildingChanged'));
-                        }
-                        break;
-                    case(8):
-                        if(numPoints >= buildingCost[i]) {
-                            numPoints -= buildingCost[i];
-                            buildingLevel[i]++;
-                            buildingCost[i]*=1.131;
-                            if(buildingLevel[i]-1 == 0)
-                                buildingIncome[i]=5347;
-                            else 
-                                buildingIncome[i] = buildingIncome[i] + 8678 * buildingMult[i];
-                            if ((buildingLevel[i] % 25 == 0 && buildingLevel[i] <= 75) || (buildingLevel[i] % 100 == 0) && buildingTime[i] > 1)
-                                buildingTime[i] /= 2;
-                            points.innerHTML = convert(numPoints);
-                            document.getElementById("building" + i + "-level").innerHTML = buildingLevel[i];
-                            document.getElementById("building" + i + "-cost").innerHTML = convert(buildingCost[i]);
-                            document.dispatchEvent(new Event('buildingChanged'));
-                        }
-                        break;
-                    case(9):
-                        if(numPoints >= buildingCost[i]) {
-                            numPoints -= buildingCost[i];
-                            buildingLevel[i]++;
-                            buildingCost[i]*=1.131;
-                            if(buildingLevel[i]-1 == 0)
-                                buildingIncome[i]=10876;
-                            else 
-                                buildingIncome[i] = buildingIncome[i] + 21178 * buildingMult[i];
-                            if ((buildingLevel[i] % 25 == 0 && buildingLevel[i] <= 75) || (buildingLevel[i] % 100 == 0) && buildingTime[i] > 1)
-                                buildingTime[i] /= 2;
-                            points.innerHTML = convert(numPoints);
-                            document.getElementById("building" + i + "-level").innerHTML = buildingLevel[i];
-                            document.getElementById("building" + i + "-cost").innerHTML = convert(buildingCost[i]);
-                            document.dispatchEvent(new Event('buildingChanged'));
-                        }
-                        break;
-                    case(10):
-                        if(numPoints >= buildingCost[i]) {
-                            numPoints -= buildingCost[i];
-                            buildingLevel[i]++;
-                            buildingCost[i]*=1.131;
-                            if(buildingLevel[i]-1 == 0)
-                                buildingIncome[i]=25256;
-                            else 
-                                buildingIncome[i] = buildingIncome[i] + 70896 * buildingMult[i];
-                            if ((buildingLevel[i] % 25 == 0 && buildingLevel[i] <= 75) || (buildingLevel[i] % 100 == 0) && buildingTime[i] > 1)
-                                buildingTime[i] /= 2;
-                            points.innerHTML = convert(numPoints);
-                            document.getElementById("building" + i + "-level").innerHTML = buildingLevel[i];
-                            document.getElementById("building" + i + "-cost").innerHTML = convert(buildingCost[i]);
-                            document.dispatchEvent(new Event('buildingChanged'));
-                        }
-                        break;
-                    case(11):
-                        if(numPoints >= buildingCost[i]) {
-                            numPoints -= buildingCost[i];
-                            buildingLevel[i]++;
-                            buildingCost[i]*=1.131;
-                            if(buildingLevel[i]-1 == 0)
-                                buildingIncome[i]=67895;
-                            else 
-                                buildingIncome[i] = buildingIncome[i] + 150765 * buildingMult[i];
-                            if ((buildingLevel[i] % 25 == 0 && buildingLevel[i] <= 75) || (buildingLevel[i] % 100 == 0) && buildingTime[i] > 1)
-                                buildingTime[i] /= 2;
-                            points.innerHTML = convert(numPoints);
-                            document.getElementById("building" + i + "-level").innerHTML = buildingLevel[i];
-                            document.getElementById("building" + i + "-cost").innerHTML = convert(buildingCost[i]);
-                            document.dispatchEvent(new Event('buildingChanged'));
-                        }
-                        break;
-                }
-=======
                 if(numPoints >= buildingCost[i]) {
                     numPoints -= buildingCost[i];
                     buildingLevel[i]++;
@@ -332,7 +125,6 @@ loadGame();
                 document.getElementById("building" + i + "-cost").innerHTML = convert(buildingCost[i]);
                 document.dispatchEvent(new Event('buildingChanged'));
             }
->>>>>>> Stashed changes
             })
 
             upgradeBuilding[i].onmouseover = function(){
