@@ -2,33 +2,57 @@
 
     let numPoints = 0;
     let numPointsPerClick = 1;
-    let buildingLevel = Array.from({length: 10}, () => 0);
-    let fighterLevel = Array.from({length: 10}, () => 0);
-    let upgradeBool = Array.from({length: 10}, () => false);
-    let buildingCost = Array.from({lenght: 10}, () => 0);
-    let buildingIncome = Array.from({lenght: 10}, () => 0);
-    let buildingTimeLeft = Array.from({length: 10}, () => 0);
-    let buildingTime = Array.from({lenght: 10}, () => 0);
-    buildingCost[1] = 20;
-    buildingCost[2] = 100;
-    buildingCost[3] = 10;
-    buildingCost[4] = 10;
-    buildingCost[5] = 10;
-    buildingCost[6] = 10;
-    buildingCost[7] = 10;
-    buildingCost[8] = 10;
+    let buildingLevel = Array.from({length: 12}, () => 0);
+    let fighterLevel = Array.from({length: 12}, () => 0);
+    let upgradeBool = Array.from({length: 12}, () => false);
+    let buildingCost = Array.from({lenght: 12}, () => 0);
+    let buildingIncome = Array.from({lenght: 12}, () => 0);
+    let buildingTime = Array.from({lenght: 12}, () => 0);
+    buildingCost[1] = 1;
+    buildingCost[2] = 7;
+    buildingCost[3] = 11;
+    buildingCost[4] = 115;
+    buildingCost[5] = 257;
+    buildingCost[6] = 780;
+    buildingCost[7] = 1567;
+    buildingCost[8] = 4123;
+    buildingCost[9] = 9134;
+    buildingCost[10] = 23456;
+    buildingCost[11] = 61345;
+    buildingTime[1] = 2;
+    buildingTime[2] = 4;
+    buildingTime[3] = 8;
+    buildingTime[4] = 16;
+    buildingTime[5] = 32;
+    buildingTime[6] = 64;
+    buildingTime[7] = 128;
+    buildingTime[8] = 256;
+    buildingTime[9] = 512;
+    buildingTime[10] = 1024;
+    buildingTime[11] = 2048;
+    buildingIncome[1]=2;
+    buildingIncome[2]=73;
+    buildingIncome[3]=100;
+    buildingIncome[4]=267;
+    buildingIncome[5]=512;
+    buildingIncome[6]=1065;
+    buildingIncome[7]=2043;
+    buildingIncome[8]=5347;
+    buildingIncome[9]=10876;
+    buildingIncome[10]=25256;
+    buildingIncome[11]=67895;
     let index;
     loadGame(); 
 
 // values 
-    const upgradeBuilding = Array.from({length: 10}, () => NaN);
-    const upgradeFighter = Array.from({length: 10}, () => NaN);
-    const building_tooltip = Array.from({length: 10}, () => NaN);
-    const fighter_tooltip = Array.from({length: 10}, () => NaN);
+    const upgradeBuilding = Array.from({length: 12}, () => NaN);
+    const upgradeFighter = Array.from({length: 12}, () => NaN);
+    const building_tooltip = Array.from({length: 12}, () => NaN);
+    const fighter_tooltip = Array.from({length: 12}, () => NaN);
     const button = document.getElementById("image-button");
     const pointsPerClick = document.getElementById('points-per-click');
     const points = document.getElementById('points');
-    for (let i = 1; i <= 8; i++){
+    for (let i = 1; i <= 11; i++){
         upgradeBuilding[i] = document.getElementById('building' + i);
         upgradeFighter[i] = document.getElementById('fighter' + i);
         building_tooltip[i] = document.getElementById('building' + i +'-tooltip');
@@ -52,10 +76,6 @@
             return nr;
         }
 
-    //data functions
-
-        
-    
     //hide elements
 
         function hideElements(){
@@ -107,18 +127,19 @@
 
 //buildings
 
-        var buildingInterval = Array.from({length: 10}, () => 0);
 
-        for (let i = 1; i <= 8; i++){
+        for (let i = 1; i <= 11; i++) {
             upgradeBuilding[i].addEventListener('click', () =>{
-                if(numPoints >= buildingCost[i]*(Math.pow(1.15,buildingLevel[i]))){
-                    numPoints -= buildingCost[i]*(Math.pow(1.15,buildingLevel[i]));
-                    buildingLevel[i] += 1;
+                if(numPoints >= buildingCost[i]) {
+                    numPoints -= buildingCost[i];
+                    buildingLevel[i]++;
+                    buildingCost[i]+=1;
+                    buildingIncome[i]+=1;
                     if (buildingLevel[i] % 25 == 0)
-                        buildingTime[i] =  buildingTime[i]/(Math.pow(2, buildingLevel[i]/25));
+                        buildingTime[i] /= 2;
                     points.innerHTML = convert(numPoints);
                     document.getElementById("building" + i + "-level").innerHTML = buildingLevel[i];
-                    document.getElementById("building" + i + "-cost").innerHTML = convert(buildingCost[i]*Math.pow(1.15,buildingLevel[i]));
+                    document.getElementById("building" + i + "-cost").innerHTML = convert(buildingCost[i]);
                     document.dispatchEvent(new Event('buildingChanged'));
                 }
             })
@@ -129,20 +150,18 @@
 
             upgradeBuilding[i].onmouseout = function(){
                 building_tooltip[i].style.display = "none";
-                console.log(i);
             }
             
         }
 
     //progress bar function
     function animationUpdate (index) {
-        numPoints += buildingLevel[index];
+        numPoints += buildingIncome[index];
         points.innerHTML = convert(numPoints);
-        console.log(buildingTime[1]);
     }
 
     function displayProgressBar(){
-        for (let i = 1; i <= 8; i++){
+        for (let i = 1; i <= 11; i++){
             if (buildingLevel[i] >= 1){
                 document.getElementById("progress-bar-" + i).style.animation = 'glow';
                 document.getElementById("progress-bar-" + i).style.animationIterationCount = 'infinite';
