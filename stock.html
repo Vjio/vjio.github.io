@@ -6,14 +6,9 @@
 			border: 1px solid yellow;
 			background-color: #141517;
 		}
-		#stock-market-button{
-			height: 40px;
-			width: 100px;
-		}
 	</style>
 </head>
 <body>
-	<button id = stock-market-button> Toggle stock market </button>
 	<div id = "minigame2" style = "display: none;">
 		<canvas id="canvas"></canvas>
 		<br>
@@ -39,9 +34,8 @@
 		const buyButton = document.getElementById("buy");
 		const sellButton = document.getElementById("sell");
 
-		document.getElementById("stock-market-button").addEventListener("click", () => {
+		if(star==true){
 			
-			document.getElementById("stock-market-button").style.display = "none";
 			document.getElementById("minigame2").style.display = "block";
 
 		buyButton.addEventListener("click", () => {
@@ -162,7 +156,7 @@
 		};
 		
 		setInterval(draw, 50);
-		});
+		};
 	</script>
 </body>
 </html>

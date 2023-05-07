@@ -1,4 +1,4 @@
-const canvas2 = document.getElementById("canvas2");
+        const canvas2 = document.getElementById("canvas2");
 		const ctx2 = canvas2.getContext("2d");
 		const stockBuyPrice = document.getElementById("stock-buy-price");
 		const stockSellPrice = document.getElementById("stock-sell-price");
@@ -7,14 +7,16 @@ const canvas2 = document.getElementById("canvas2");
 		//let money = 1000;
 		let curentPrice = Array.from({length: 20}, () => 0);
 		let nrStocks = Array.from({length: 20}, () => 0);
+		let start=false;
 
 		//buy/sell
 		const buyButton = document.getElementById("buy");
 		const sellButton = document.getElementById("sell");
+ 
+		function displayStock(){
+			if(!start){
+			start=true;
 
-		document.getElementById("stock-market-button").addEventListener("click", () => {
-			
-			document.getElementById("stock-market-button").style.display = "none";
 			document.getElementById("minigame2").style.display = "grid";
 
 			let curentStock = 1;
@@ -121,6 +123,7 @@ const canvas2 = document.getElementById("canvas2");
 				for (let index = 1; index < 11; index++){
 					for (let i = 1; i < numStocks; i++) {
 						stockTimes[index].push(stockTimes[index][i-1] + Math.floor(Math.random() * 5)*10 + 15);
+
 						if (Math.random() < luck){
 							newStockPrice = (stockPrices[index][i-1] - (stockPrices[index][i-1] * Math.random()/volatility)) % 300;
 				 		} else {
@@ -211,4 +214,6 @@ const canvas2 = document.getElementById("canvas2");
 		};
 		
 		setInterval(draw, 50);
-		});
+		} };
+
+		document.addEventListener('buildingChanged', displayStock);
