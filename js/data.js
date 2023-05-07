@@ -5,6 +5,7 @@ let numPointsPerClick = 1;
 let buildingLevel = Array.from({length: 10}, () => 0);
 let fighterLevel = Array.from({length: 10}, () => 0);
 let upgradeBool = Array.from({length: 10}, () => false);
+let tutorialBool = Array.from({length: 10}, () => false);
 let buildingCost = Array.from({lenght: 10}, () => 0);
 let buildingIncome = Array.from({lenght: 10}, () => 0);
 let buildingTimeLeft = Array.from({length: 10}, () => 0);

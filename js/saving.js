@@ -7,7 +7,7 @@ function saveData(){
     localStorage.setItem("upgradeBool", JSON.stringify(upgradeBool));
     localStorage.setItem("numberOfStocks", JSON.stringify(nrStocks));
     localStorage.setItem("buildingTime", JSON.stringify(buildingTime));
-    localStorage.setItem("buildingMult", JSON.stringify(buildingTime));
+    localStorage.setItem("buildingMult", JSON.stringify(buildingMult));
 }
 
 function loadGame(){ //a fost..... dificil sa scriu asta

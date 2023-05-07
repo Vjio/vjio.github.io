@@ -1,4 +1,8 @@
 .tutorial{
+<<<<<<< Updated upstream
+=======
+    display: none;
+>>>>>>> Stashed changes
     text-align: center;
     position: absolute;
     user-select: none;
