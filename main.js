@@ -167,6 +167,7 @@ loadGame();
     resetButton.addEventListener('click', () =>{
         localStorage.clear();
         loadGame();
+        location.reload();
     })
 
 //shop
