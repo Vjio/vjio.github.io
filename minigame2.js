@@ -95,17 +95,9 @@
 					stockPrices[i] = [];
 				};
 
-				stockPrices[0][0] = 150;
-				stockPrices[1][0] = 150;
-				stockPrices[2][0] = 150;
-				stockPrices[3][0] = 150;
-				stockPrices[4][0] = 150;
-				stockPrices[5][0] = 150;
-				stockPrices[6][0] = 150;
-				stockPrices[7][0] = 150;
-				stockPrices[8][0] = 150;
-				stockPrices[9][0] = 150;
-				stockPrices[10][0] = 150;
+				for (let i = 0; i < 11; i++){
+					stockPrices[i][0] = 150;
+				}
 
 				let stockTimes = [];
 				for (let i = 0; i < 40; i++){
