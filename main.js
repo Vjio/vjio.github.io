@@ -151,6 +151,7 @@ loadGame();
         for (let i = 1; i <= 11; i++){
             if (buildingLevel[i] >= 1){
                 document.getElementById("progress-bar-" + i).style.animation = 'glow';
+                document.getElementById("progress-bar-" + i).style.animationTimingFunction = 'linear';
                 document.getElementById("progress-bar-" + i).style.animationIterationCount = 'infinite';
                 document.getElementById("progress-bar-" + i).style.animationPlayState = 'running';
                 document.getElementById("progress-bar-" + i).style.animationDuration = buildingTime[i] + "s";
